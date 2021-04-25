@@ -37,7 +37,7 @@
             </div>
           </el-main>
         </div>
-        <el-footer>Footer</el-footer>
+        <el-footer>底部footer</el-footer>
       </el-container>
     </el-container>
   </el-container>
@@ -58,7 +58,6 @@ export default {
   },
   methods: {
     print() {
-      
       let subOutputRankPrint = document.getElementById("mainPrint");
       console.log(subOutputRankPrint.innerHTML);
       let newContent = subOutputRankPrint.innerHTML;
