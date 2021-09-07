@@ -13,7 +13,10 @@
     "element-ui": "^2.15.1",
     "sass-loader": "^11.0.1",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-button-animation": "^1.8.7",
+    "vue-city-pinyin": "^1.0.2",
+    "vue-router": "^3.0.1",
+    "vue-simplemde": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
