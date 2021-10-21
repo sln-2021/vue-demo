@@ -1,30 +1,29 @@
 <template>
-  <el-container>
+  <div class="main">
+    <el-aside width="200px">Aside</el-aside>
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
-      <el-container>
-        <el-header>
-          <el-row>
-            <el-col :span="12"
-              ><div class="grid-content bg-purple">
-                <el-row>
-                  <el-button plain>朴素按钮</el-button>
-                  <el-button type="primary" plain>主要按钮</el-button>
-                  <el-button type="success" plain>成功按钮</el-button>
-                  <el-button type="info" plain>信息按钮</el-button>
-                  <el-button type="warning" plain>警告按钮</el-button>
-                  <el-button type="danger" plain>危险按钮</el-button>
-                </el-row>
-              </div></el-col
-            >
-            <el-col :span="12"
-              ><div class="grid-content bg-purple-light">right</div></el-col
-            >
-          </el-row>
-        </el-header>
-        <div id="mainPrint">
-          <div></div>
-          <!-- <el-main>
+      <el-header>
+        <el-row>
+          <el-col :span="12"
+            ><div class="grid-content bg-purple">
+              <el-row>
+                <el-button plain>朴素按钮</el-button>
+                <el-button type="primary" plain>主要按钮</el-button>
+                <el-button type="success" plain>成功按钮</el-button>
+                <el-button type="info" plain>信息按钮</el-button>
+                <el-button type="warning" plain>警告按钮</el-button>
+                <el-button type="danger" plain>危险按钮</el-button>
+              </el-row>
+            </div></el-col
+          >
+          <el-col :span="12"
+            ><div class="grid-content bg-purple-light">right</div></el-col
+          >
+        </el-row>
+      </el-header>
+      <div id="mainPrint">
+        <div></div>
+        <!-- <el-main>
             <el-table :data="tableData">
               <el-table-column prop="date" label="日期" width="140">
               </el-table-column>
@@ -37,7 +36,7 @@
               <el-button type="primary" @click="print()">打印页面</el-button>
             </div>
           </el-main> -->
-          <!-- <button-basic>Button</button-basic>
+        <!-- <button-basic>Button</button-basic>
           <radio-basic value="dog" v-model="selectedAnimal">
             Dog
           </radio-basic>
@@ -49,28 +48,28 @@
           </radio-basic>
           <file-basic @change="onChangeFile">Select File</file-basic>
           <div> -->
-          <div>jkokj;p</div>
-          <CityPinyin
-            :value="startCity"
-            @on-change="onChange($event, 0)"
-            msg="出发城市"
-          />
-          <CityPinyin
-            :value="endCity"
-            @on-change="onChange($event, 1)"
-            msg="到达城市"
-          />
-          <!-- </div> -->
-          <vue-simplemde v-model="content" ref="markdownEditor" />
-        </div>
-        <el-footer>底部footer</el-footer>
-      </el-container>
+        <div>jkokj;p</div>
+        <CityPinyin
+          :value="startCity"
+          @on-change="onChange($event, 0)"
+          msg="出发城市"
+        />
+        <CityPinyin
+          :value="endCity"
+          @on-change="onChange($event, 1)"
+          msg="到达城市"
+        />
+        <!-- </div> -->
+        <vue-simplemde v-model="content" ref="markdownEditor" />
+      </div>
+      <el-footer>底部footer</el-footer>
     </el-container>
-  </el-container>
+    <i class="el-icon-star-off"></i>
+  </div>
 </template>
 
 <script>
-import VueSimplemde from 'vue-simplemde'
+import VueSimplemde from "vue-simplemde";
 export default {
   name: "Main",
   data() {
@@ -90,7 +89,7 @@ export default {
         id: "",
         name: ""
       },
-      content:""
+      content: ""
     };
   },
   components: { VueSimplemde },
@@ -146,5 +145,10 @@ export default {
   /* 打印A4大小 */
   size: auto A4 landscape;
   margin: 3mm;
+}
+.el-icon-star-off{
+  color: #E0E0E0;
+  font-size: 24px;
+  margin-left: 20px;
 }
 </style>
