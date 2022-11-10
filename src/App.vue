@@ -20,13 +20,13 @@
           v-for="(domain, index) in dynamicValidateForm.persons"
           :key="domain.key"
         >
-            <el-form-item
-              :label="'姓名' + index + 1"
-              :prop="'persons.' + index + '.name'"
-              :rules="rules.name"
-            >
-              <el-input v-model="domain.name"></el-input>
-            </el-form-item>
+          <el-form-item
+            :label="'姓名' + index + 1"
+            :prop="'persons.' + index + '.name'"
+            :rules="rules.name"
+          >
+            <el-input v-model="domain.name"></el-input>
+          </el-form-item>
         </el-row>
         <el-form-item>
           <el-button type="primary" @click="submitForm('dynamicValidateForm')"
@@ -37,6 +37,14 @@
         </el-form-item>
       </el-form>
     </el-dialog>
+    <el-select v-model="from.type" @change="updateFlowType">
+      <el-option label="普通流转路径" value="normal" />
+      <el-option label="默认流转路径" value="default" />
+      <el-option label="条件流转路径" value="condition" />
+      <el-option label="通过路径" value="resolve" />
+      <el-option label="拒绝路径" value="reject" />
+    </el-select>
+    <el-input v-model="from.txt" clearable :disabled="bodyDisabled" />
   </div>
 </template>
 
@@ -64,11 +72,27 @@ export default {
             message: "请输入姓名",
             trigger: "blur"
           }
-        ],
-      }
+        ]
+      },
+      from: {
+        type: "",
+        txt: ""
+      },
+      bodyDisabled: false
     };
   },
   methods: {
+    updateFlowType(type) {
+      if (type === "resolve" || type === "reject") {
+        this.bodyDisabled = true;
+        if (type === "resolve") {
+          this.from.txt = "true";
+        }
+        if (type === "reject") {
+          this.from.txt = "false";
+        }
+      }
+    },
     add(formName) {
       this.dialogFormVisible = true;
       if (this.dynamicValidateForm.persons.length > 1 || this.firstFlag) {
@@ -95,7 +119,7 @@ export default {
     },
     addPerson() {
       this.dynamicValidateForm.persons.push({
-        name: "",
+        name: ""
       });
     },
     dialogClose() {
